@@ -1,8 +1,9 @@
 <?php
 include('login.php'); // Includes Login Script
 
+//checking session is available
 if (isset($_SESSION['login_user'])) {
-    header("location: profile.php");
+    header("location: profile.php"); //redirect Prifile page
 }
 ?>
 <!DOCTYPE html>

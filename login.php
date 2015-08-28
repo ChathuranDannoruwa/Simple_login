@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
         $error = "Username or Password is invalid";
     } else {
 
-
+        //assing text box value to variable 
         $username = $_POST['username'];
         $password = $_POST['password'];
 
