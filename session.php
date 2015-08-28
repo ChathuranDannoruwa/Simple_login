@@ -20,12 +20,10 @@ $stmt->bindParam(1, $user_check);
 
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 $login_session = $row['username'];
-if($row == null){
-    echo "empty";
-}
+
 if (!isset($login_session)) {
 
     $conn=null;// Closing Connection
-    //header('Location: index.php'); // Redirecting To Home Page
+  
 }
 ?>
