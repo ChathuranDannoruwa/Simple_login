@@ -19,16 +19,20 @@ if (isset($_POST['submit'])) {
         $password = $_POST['password'];
 
         try {
+            //Establish DB Connection
             $conn = new PDO(DB_DRIVER . ":dbname=" . DB_DATABASE . ";host=" . DB_SERVER, DB_USER, DB_PASSWORD);
+           
             $query = "select * from login where password=? AND username=?";
             $stmt = $conn->prepare($query);
+            //bind username & password to sql quary and execute the quary
             $stmt->bindParam(1, $password);
             $stmt->bindParam(2, $username);
             $stmt->execute();
             $result = $stmt->fetchAll();
+            //get the count of the out put rows from the exacuted quary
             $row = $stmt->rowCount();
 
-
+            //assing the Log in user to session
             if ($row == 1) {
                 $_SESSION['login_user'] = $username; // Initializing Session
                 header("location: profile.php"); // Redirecting To Other Page
